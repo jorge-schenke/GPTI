@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         const drSimiList = [];
         $('.vtex-product-summary-2-x-container').each((i, el) => {
             const title = $(el).find('.vtex-product-summary-2-x-productNameContainer').text();
-            const price = $(el).find('.vtex-product-price-1-x-sellingPrice').text();
+            const price = parseInt($(el).find('.vtex-product-price-1-x-sellingPrice').text().replace("$", ""));
             const link = "https://www.drsimi.cl" + $(el).find('.vtex-product-summary-2-x-clearLink').attr('href');
             const image = $(el).find('.vtex-product-summary-2-x-image').attr('src');
             const source = "Dr Simi";
