@@ -2,14 +2,17 @@ import fetch from 'node-fetch';
 import cheerio from 'cheerio';
 
 export default async function handler(req, res) {
+    const query = req.query.query;
+    console.log("Query: ", query);
     const getRawData = async (url) => {
         const response = await fetch(url);
         const data = await response.text();
         return data;
     }
     const dataList = [];
-    const getSearch = async (query, responseList) => {
-        const drSimiURL = `https://www.drsimi.cl/${query}?_q=paracetamol&map=ft`;
+    const getSearch = async (querySearch, responseList) => {
+        const drSimiURL = `https://www.drsimi.cl/${query}?_q=${query}&map=ft`;
+        console.log("Dr Simi URL: ", drSimiURL);
         const cruzVerdeURL = `https://www.cruzverde.cl/search?query=${query}`;
         const AhumadaURL = `https://www.farmaciasahumada.cl/catalogsearch/result/?q=${query}`;
         const salcobrandURL = `https://salcobrand.cl/search_result?query=${query}`;
@@ -42,7 +45,7 @@ export default async function handler(req, res) {
         const salcobrandData = await getRawData(salcobrandURL);
     }
     // try{
-    await getSearch("paracetamol", dataList);
+    await getSearch(query, dataList);
     //send detaList in response:
     res.status(200).json({ dataList });
     // } catch {

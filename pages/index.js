@@ -3,49 +3,29 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const llamarApi = async() => {
-    try {
-      const resp = await fetch ('/api');
+  const llamarApi = async(query) => {
+    // try {
+      const resp = await fetch (`/api/${query}`);
+      // const resp = await fetch (`/api`);
       const respJson = await resp.json();
       console.log(respJson);
-    } catch {
-      console.log("No wei");
-    }
-    // try{
-    //   const resp = await fetch("https://api.cruzverde.cl/product-service/products/recommendations/product-to-product?products[]=260536&enableTracking=true&inventoryId=1119", {
-    //     "credentials": "include",
-    //     "headers": {
-    //       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:103.0) Gecko/20100101 Firefox/103.0',
-    //       'Accept': 'application/json, text/plain, */*',
-    //       'Accept-Language': 'es-CL,es;q=0.8,en-US;q=0.5,en;q=0.3',
-    //       'Accept-Encoding': 'gzip, deflate, br',
-    //       'Origin': 'https://www.cruzverde.cl',
-    //       'Connection': 'keep-alive',
-    //       'Referer': 'https://www.cruzverde.cl/',
-    //       'Cookie': '_gcl_aw=GCL.1661720935.CjwKCAjwpKyYBhB7EiwAU2Hn2aDFMgDum8fNkN06UrGLO_gRg67nIixGP4iJ-FPU0IdYeGKkbTeDSBoCK5EQAvD_BwE; _gcl_au=1.1.187801429.1661261114; _ga_GMKXQPNSW5=GS1.1.1661720935.3.1.1661720961.34.0.0; _ga=GA1.2.435906953.1661261118; _fbp=fb.1.1661261119211.411688162; _hjSessionUser_1614665=eyJpZCI6IjFjMmYxM2NkLWE3ODUtNTA1NC05YjMxLTJkYTYzNGEyYTdiNSIsImNyZWF0ZWQiOjE2NjEyNjExMTkyMDcsImV4aXN0aW5nIjp0cnVlfQ==; _gac_UA-149350909-1=1.1661720955.CjwKCAjwpKyYBhB7EiwAU2Hn2aDFMgDum8fNkN06UrGLO_gRg67nIixGP4iJ-FPU0IdYeGKkbTeDSBoCK5EQAvD_BwE; _gid=GA1.2.1603557466.1661706503; _gat_UA-149350909-1=1; _hjSession_1614665=eyJpZCI6ImU0ZWJjNDc4LTkyNGEtNDNkYi1hMmMzLTVkZTc2MDVhNGE1MCIsImNyZWF0ZWQiOjE2NjE3MjA5MzY4OTEsImluU2FtcGxlIjpmYWxzZX0=; _hjAbsoluteSessionInProgress=0; connect.sid=s%3Acruzverde-2b3506fd-9111-42c4-ab8a-db739a737c9d.u6v6DO%2B9deLJKMS0GGci9M6xOkcguj5fviQOr1g13DU',
-    //       'Sec-Fetch-Dest': 'empty',
-    //       'Sec-Fetch-Mode': 'cors',
-    //       'Sec-Fetch-Site': 'same-site',
-    //       'If-None-Match': 'W/"10860-k4NfTE9QE/3WoHAOjfvFDQCYgrU"',
-    //       'TE': 'trailers'
-    //     },
-    //     "referrer": "https://www.cruzverde.cl/",
-    //     "method": "GET",
-    //     "mode": "cors"
-    // });
-    //   console.log(resp);
-    //   console.log("Hola?");
     // } catch {
-    //   console.log("Error en llamada");
+    //   console.log("No wei");
     // }
   }
 
+  const [query, setQuery] = useState("");
+
+  const handleChange = (event) => {
+    setQuery(event.target.value);
+  };
 
   const llamadaEjemplo = async () => {
     console.log("Voy a llamar a la API");
-    await llamarApi();
+    await llamarApi(query);
     console.log("Ya la llamé");
   }
   return (
@@ -65,8 +45,8 @@ export default function Home() {
           ¡Ingresa el nombre de un medicamento y te daremos las opciones más económicas del mercado!
         </p>
 
-        <TextField id="outlined-basic" label="Ejemplo input" variant="outlined" />
-        <Button variant="contained" onClick={llamadaEjemplo}>Llamada a api</Button>
+        <TextField id="outlined-basic" label="Ejemplo input" variant="outlined" onChange={handleChange}/>
+        <Button variant="contained" onClick={llamadaEjemplo}>Buscar</Button>
 
       </main>
 
