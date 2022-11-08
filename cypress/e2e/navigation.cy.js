@@ -1,15 +1,15 @@
 describe('Navigation', () => {
   it('should navigate to the home page', () => {
-    cy.visit('http://localhost:3001/')
+    cy.visit('http://localhost:3000/')
     cy.get('h1').contains('Welcome to Ecomedi!')
   })
 
   it('should navigate to the result page', () => {
     // Start from the index page
-    cy.visit('http://localhost:3001/')
+    cy.visit('http://localhost:3000/')
 
     // Enter word to search
-    cy.get('TextField').contains('Ejemplo input').type('Paracetamol')
+    cy.get('div').get('input[id="outlined-basic"]').type('Paracetamol')
 
     // Find a button containing "Buscar" and click it
     cy.get('Button').contains('Buscar').click()
