@@ -45,7 +45,7 @@ export default async function handler(req, res) {
         const $CV = cheerio.load(cruzVerdeData);
         const cruzVerdeList = [];
         $CV('ml-card-product').each((i, el) => {
-            const title = $CV(el).find('span.ng-star-inserted').text().trim();
+            const title = $CV(el).find('span.ng-star-inserted').text().replace(" Ver disponibilidad ", "").trim();
             const price = parseInt($CV(el).find('span.text-orange').text().replace("$", "").replace(".", ""));
             const link = "https://www.cruzverde.cl" + $CV(el).find('a').attr('href');
             const image = $CV(el).find('img.max-w-full').attr('src');
