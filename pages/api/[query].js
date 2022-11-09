@@ -4,7 +4,6 @@ import puppeteer from 'puppeteer';
 
 export default async function handler(req, res) {
     const query = req.query.query;
-    console.log("Query: ", query);
     const getRawData = async (url) => {
         const response = await fetch(url);
         const data = await response.text();
@@ -104,7 +103,6 @@ export default async function handler(req, res) {
     }
     // try{
     await getSearch(query, dataList);
-    console.log("Data List: ", dataList);
     //send detaList in response:
     res.status(200).json({ dataList });
     // } catch {
