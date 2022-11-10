@@ -3,13 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import Button from "@mui/material/Button";
+import Image from 'next/image';
 
 const ProductRow = ({ image, title, source, price, link }) => {
   let priceFinal = "$" + price?.toString()
   return (
     <div className="row product">
       <div className="col-md-2">
-        <img src={image} alt={title} height="80" />
+        <Image src={image} alt={title} height="80" />
       </div>
       <div className="col-md-8 product-detail">
         <h4>{title}</h4>

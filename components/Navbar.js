@@ -2,6 +2,7 @@ import React from "react";
 import { Nav } from "react-bootstrap";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from 'next/image';
 
 export default function Navbar() {
   const router = useRouter();
@@ -10,7 +11,7 @@ export default function Navbar() {
     <Nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link href="/">
         <a className="navbar-brand" style={{ marginLeft: "3%" }}>
-          Ecomedi <img src={"/pill.png"} width="30" height="30" />
+          Ecomedi <Image src={"/pill.png"} alt="ecomedi_logo" width="30" height="30" />
         </a>
       </Link>
       <div className="container-xl">
