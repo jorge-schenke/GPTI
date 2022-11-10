@@ -64,7 +64,7 @@ export default function Home() {
         </Head>
 
         <main className={styles.main}>
-          <h1 className={styles.title}>¡Bienvenido a Ecomedi!</h1>
+          <h1 className={styles.title} id="welcome">¡Bienvenido a Ecomedi!</h1>
           <p className={styles.description}>
             ¡Ingresa el nombre de un medicamento y te daremos las opciones más
             económicas del mercado!
@@ -111,7 +111,7 @@ export default function Home() {
         </Head>
 
         <main className={styles.main}>
-          <h1 className={styles.title}>Buscando los mejores precios</h1>
+          <h1 className={styles.title} id="loading">Buscando los mejores precios</h1>
           <LoadingScreen />
         </main>
 
@@ -144,7 +144,7 @@ export default function Home() {
         </Head>
 
         <main className={styles.main}>
-          <h1 className={styles.title}>Resultados</h1>
+          <h1 className={styles.title} id="results">Resultados</h1>
 
           <ProductList remedios={remedios.slice(0, cantidad)} />
           {remedios.length !== cantidad ? (
