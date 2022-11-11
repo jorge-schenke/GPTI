@@ -19,8 +19,8 @@ const ProductRow = ({ image, title, source, price, link }) => {
       <div className="col-md-2 product-price" style={{ textAlign: "center" }} data-cy="price">
         {priceFinal}
         <br />
-        <Link href={link} passHref data-cy="link">
-          <Button variant="contained" color="secondary">
+        <Link data-cy="link" href={link} passHref>
+          <Button variant="contained" color="secondary" data-cy="button">
             Revisar remedio
           </Button>
         </Link>
