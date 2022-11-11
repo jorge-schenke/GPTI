@@ -1,17 +1,23 @@
-name: End-to-end tests
+name: Cypress tests
 on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
+    name: Cypress run
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
+      - name: End-to-end run
         uses: cypress-io/github-action@v4
         with:
           build: npm run build
           start: npm start
           wait-on: 'http://localhost:3000'
           config: baseUrl=http://localhost:3000
+      - name: Run Component tests 🧪
+        uses: cypress-io/github-action@v4
+        with:
+          install: false
+          component: true
