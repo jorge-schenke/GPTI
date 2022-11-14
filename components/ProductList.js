@@ -5,7 +5,7 @@ import ProductRow from "./ProductRow";
 
 function ProductList({ remedios }) {
   return (
-    <div className="container main-content">
+    <div className="container main-content" data-cy="product-list">
       {remedios.map((remedio, index) => {
         if (remedio.price) {
           return (

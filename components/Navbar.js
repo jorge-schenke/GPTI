@@ -2,6 +2,7 @@ import React from "react";
 import { Nav } from "react-bootstrap";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from 'next/image';
 
 export default function Navbar() {
   const router = useRouter();
@@ -9,8 +10,8 @@ export default function Navbar() {
   return (
     <Nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link href="/">
-        <a className="navbar-brand" style={{ marginLeft: "3%" }}>
-          Ecomedi <img src={"/pill.png"} width="30" height="30" />
+        <a className="navbar-brand" style={{ marginLeft: "3%" }} data-cy="logo">
+          Ecomedi <Image src={"/pill.png"} alt="ecomedi_logo" width="30" height="30" data-cy="image"/>
         </a>
       </Link>
       <div className="container-xl">
@@ -31,12 +32,12 @@ export default function Navbar() {
             <ul className="navbar-nav mr-auto" style={{ marginLeft: "85%" }}>
               <li className="nav-item active">
                 <Link href="/">
-                  <a className="nav-link active">Home</a>
+                  <a className="nav-link active" data-cy="home-active">Home</a>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link href="/about">
-                  <a className="nav-link">AboutUs</a>
+                  <a className="nav-link" data-cy="about">AboutUs</a>
                 </Link>
               </li>
             </ul>
@@ -44,12 +45,12 @@ export default function Navbar() {
             <ul className="navbar-nav mr-auto" style={{ marginLeft: "85%" }}>
               <li className="nav-item">
                 <Link href="/">
-                  <a className="nav-link">Home</a>
+                  <a className="nav-link" data-cy="home">Home</a>
                 </Link>
               </li>
               <li className="nav-item active">
                 <Link href="/about">
-                  <a className="nav-link active">AboutUs</a>
+                  <a className="nav-link active" data-cy="about-active">AboutUs</a>
                 </Link>
               </li>
             </ul>
