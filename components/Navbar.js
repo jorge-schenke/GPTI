@@ -28,7 +28,7 @@ export default function Navbar() {
 
         <div className="collapse navbar-collapse" id="navbarsExample07XL">
           {router.asPath === "/" ? (
-            <ul className="navbar-nav mr-auto" style={{ marginLeft: "92%" }}>
+            <ul className="navbar-nav mr-auto" style={{ marginLeft: "85%" }}>
               <li className="nav-item active">
                 <Link href="/">
                   <a className="nav-link active">Home</a>
@@ -41,7 +41,7 @@ export default function Navbar() {
               </li>
             </ul>
           ) : (
-            <ul className="navbar-nav mr-auto" style={{ marginLeft: "92%" }}>
+            <ul className="navbar-nav mr-auto" style={{ marginLeft: "85%" }}>
               <li className="nav-item">
                 <Link href="/">
                   <a className="nav-link">Home</a>
