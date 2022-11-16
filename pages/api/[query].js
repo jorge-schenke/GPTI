@@ -36,7 +36,12 @@ export default async function handler(req, res) {
         //add to dataList
         responseList.push.apply(responseList, drSimiList);
         //Cruz Verde
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+            ],
+        })
         const page = await browser.newPage();
         await page.goto(cruzVerdeURL);
         await page.waitForSelector('ml-card-product');
@@ -100,6 +105,7 @@ export default async function handler(req, res) {
         //     });
         // });
         // console.log("Salcobrand List: ", salcobrandList);
+        await browser.close();
     }
     // try{
     await getSearch(query, dataList);
