@@ -11,7 +11,7 @@ export default function Navbar() {
     <Nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link href="/">
         <a className="navbar-brand" style={{ marginLeft: "3%" }} data-cy="logo">
-          Ecomedi <Image src={"/pill.png"} alt="ecomedi_logo" width="30" height="30" data-cy="image"/>
+          BuscaFarm <Image src={"/pill.png"} alt="BuscaFarm_logo" width="30" height="30" data-cy="image"/>
         </a>
       </Link>
       <div className="container-xl">

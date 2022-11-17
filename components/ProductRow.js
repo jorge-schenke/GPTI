@@ -20,9 +20,11 @@ const ProductRow = ({ image, title, source, price, link }) => {
         {priceFinal}
         <br />
         <Link data-cy="link" href={link} passHref>
+          <a target="_blank">
           <Button variant="contained" color="secondary" data-cy="button">
             Revisar remedio
           </Button>
+          </a>
         </Link>
       </div>
     </div>
