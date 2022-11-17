@@ -64,7 +64,7 @@ export default function Home() {
         </Head>
 
         <main className={styles.main}>
-          <h1 className={styles.title} id="welcome">¡Bienvenido a Ecomedi!</h1>
+          <h1 className={styles.title} id="welcome">¡Bienvenido a BuscaFarm!</h1>
           <p className={styles.description}>
             ¡Ingresa el nombre de un medicamento y te daremos las opciones más
             económicas del mercado!
